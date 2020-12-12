@@ -43,8 +43,8 @@ function getRandomIndex(array) {
   return randomIndex;
 };
 function generateRandomCover() {
-  title.innerText = getRandomIndex(titles);
   coverImage.src = getRandomIndex(covers);
+  title.innerText = getRandomIndex(titles);
   tagline1.innerText = getRandomIndex(descriptors);
   tagline2.innerText = getRandomIndex(descriptors);
   hiddenForm.classList.add('hidden');
@@ -73,26 +73,30 @@ function showSavedCovers() {
   homeButton.classList.remove('hidden');
 };
 function saveMyBook() {
-  event.preventDefault();
   var userCover = covers.push(userCoverInput.value);
   var userTitle = titles.push(userTitleInput.value);
   var userDesc1 = descriptors.push(userDescInput1.value);
   var userDesc2 = descriptors.push(userDescInput2.value);
   currentCover = new Cover(userCover, userTitle, userDesc1, userDesc2);
+  event.preventDefault();
   createUserCover();
 };
 function createUserCover() {
-  // currentCover;
-  // var userCover = covers.push(userCoverInput.value);
-  // var userTitle = titles.push(userTitleInput.value);
-  // var userDesc1 = descriptors.push(userDescInput1.value);
-  // var userDesc2 = descriptors.push(userDescInput2.value);
-  // new Cover = (userCover, userTitle, userDesc1, userDesc2);
+  coverImage.src = currentCover.cover;
+  title.innerText = currentCover.title;
+  tagline1.innerText = currentCover.tagline1;
+  tagline2.innerText = currentCover.tagline2;
+  currentCover = new Cover(coverImage.src, title.innerText, tagline1.innerText, tagline2.innerText);
+  // var userCover = userCoverInput.value;
+  // var userTitle = userTitleInput.value;
+  // var userDesc1 = userDescInput1.value;
+  // var userDesc2 = userDescInput2.value;
   hiddenForm.classList.add('hidden');
   coverView.classList.remove('hidden');
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
+  event.preventDefault();
 };
 
 

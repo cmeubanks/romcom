@@ -1,3 +1,4 @@
+//hello
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var body = document.querySelector('body');

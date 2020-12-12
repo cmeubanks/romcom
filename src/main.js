@@ -78,9 +78,11 @@ function saveMyBook() {
   var userTitle = titles.push(userTitleInput.value);
   var userDesc1 = descriptors.push(userDescInput1.value);
   var userDesc2 = descriptors.push(userDescInput2.value);
-  createUserCover(userCover, userTitle, userDesc1, userDesc);
+  currentCover = new Cover(userCover, userTitle, userDesc1, userDesc2);
+  createUserCover();
 };
-function createUserCover(cover, title, desc1, desc2) {
+function createUserCover() {
+  // currentCover;
   // var userCover = covers.push(userCoverInput.value);
   // var userTitle = titles.push(userTitleInput.value);
   // var userDesc1 = descriptors.push(userDescInput1.value);

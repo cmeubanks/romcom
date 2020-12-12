@@ -16,6 +16,11 @@ var homeButton = document.querySelector('.home-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var savedCoversPage = document.querySelector('.saved-view');
+var makeMyBookButton = document.querySelector('.create-new-book-button');
+var userCoverInput = document.querySelector('.user-cover');
+var userTitleInput = document.querySelector('.user-title');
+var userDescInput1 = document.querySelector('.user-desc1');
+var userDescInput2 = document.querySelector('.user-desc2');
 
 // Add your event listeners here 👇
 window.addEventListener('load', generateRandomCover);
@@ -23,6 +28,7 @@ randomCoverButton.addEventListener('click', generateRandomCover);
 makeNewButton.addEventListener('click', showFormPage);
 viewSavedButton.addEventListener('click', showSavedCovers);
 homeButton.addEventListener('click', generateRandomCover);
+makeMyBookButton.addEventListener('click', saveMyBook);
 
 // Create your event handlers and other functions here 👇
 
@@ -62,7 +68,12 @@ function showSavedCovers() {
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
 };
-
+function saveMyBook() {
+  var userCover = userCoverInput.value;
+  var userTitle = userTitleInput.value;
+  var userDesc1 = userDescInput1.value;
+  var userDesc2 = userDescInput2.value;
+};
 
 
 //

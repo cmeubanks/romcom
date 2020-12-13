@@ -1,4 +1,3 @@
-//hello
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var body = document.querySelector('body');
@@ -59,11 +58,6 @@ function showFormPage() {
   homeButton.classList.remove('hidden');
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
-  //makeNewButton.classList.add('hidden');
-  // coverImage.classList.add('hidden');
-  // title.classList.add('hidden');
-  // tagline1.classList.add('hidden');
-  // tagline2.classList.add('hidden');
 };
 function showSavedCovers() {
   savedCoversPage.classList.remove('hidden');
@@ -91,10 +85,6 @@ function createUserCover() {
   tagline1.innerText = currentCover.tagline1;
   tagline2.innerText = currentCover.tagline2;
   currentCover = new Cover(coverImage.src, title.innerText, tagline1.innerText, tagline2.innerText);
-  // var userCover = userCoverInput.value;
-  // var userTitle = userTitleInput.value;
-  // var userDesc1 = userDescInput1.value;
-  // var userDesc2 = userDescInput2.value;
   hiddenForm.classList.add('hidden');
   coverView.classList.remove('hidden');
   homeButton.classList.add('hidden');
@@ -103,11 +93,9 @@ function createUserCover() {
   event.preventDefault();
 };
 function saveCover() {
-  savedCovers.push(currentCover);
+  if (savedCovers.includes(currentCover)) {
+    console.log(false);
+  } else {
+    return savedCovers.push(currentCover)
+  }
 };
-
-  // new Cover = (userCover, userTitle, userDesc1, userDesc2);
-
-//
-// var hidebutton = document.querySelector(".togglebutton");
-// hidebutton.onclick = toggle

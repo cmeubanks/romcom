@@ -21,7 +21,6 @@ var userCoverInput = document.querySelector('.user-cover');
 var userTitleInput = document.querySelector('.user-title');
 var userDescInput1 = document.querySelector('.user-desc1');
 var userDescInput2 = document.querySelector('.user-desc2');
-
 var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 
@@ -31,9 +30,9 @@ window.addEventListener('load', generateRandomCover);
 randomCoverButton.addEventListener('click', generateRandomCover);
 viewSavedButton.addEventListener('click', showSavedCovers);
 homeButton.addEventListener('click', generateRandomCover);
-
 makeNewButton.addEventListener('click', showFormPage);
 makeMyBookButton.addEventListener('click', saveMyBook);
+saveCoverButton.addEventListener('click', saveCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -103,7 +102,9 @@ function createUserCover() {
   saveCoverButton.classList.remove('hidden');
   event.preventDefault();
 };
-
+function saveCover() {
+  savedCovers.push(currentCover);
+};
 
   // new Cover = (userCover, userTitle, userDesc1, userDesc2);
 

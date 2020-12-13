@@ -60,6 +60,13 @@ function showFormPage() {
   randomCoverButton.classList.add('hidden');
   savedView.classList.add('hidden');
 };
+function saveCover() {
+  if (savedCovers.includes(currentCover)) {
+    console.log(false);
+  } else {
+    return savedCovers.push(currentCover)
+  }
+};
 function showSavedCovers() {
   // will display the hardcoded example, not pulling in freshly saved array items
   savedView.classList.remove('hidden');
@@ -107,11 +114,4 @@ function createUserCover() {
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   event.preventDefault();
-};
-function saveCover() {
-  if (savedCovers.includes(currentCover)) {
-    console.log(false);
-  } else {
-    return savedCovers.push(currentCover)
-  }
 };

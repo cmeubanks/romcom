@@ -1,9 +1,7 @@
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var body = document.querySelector('body');
-var savedCovers = [
-  new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-];
+var savedCovers = [];
 var currentCover;
 var pageLoad = document.querySelector('html');
 var coverImage = document.querySelector('.cover-image');
@@ -30,7 +28,7 @@ randomCoverButton.addEventListener('click', generateRandomCover);
 viewSavedButton.addEventListener('click', showSavedCovers);
 homeButton.addEventListener('click', generateRandomCover);
 makeNewButton.addEventListener('click', showFormPage);
-makeMyBookButton.addEventListener('click', saveMyBook);
+makeMyBookButton.addEventListener('click', createUserCover);
 saveCoverButton.addEventListener('click', saveCover);
 
 // Create your event handlers and other functions here 👇
@@ -51,6 +49,7 @@ function generateRandomCover() {
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
+  saveCoverButton.disabled = false;
 };
 function showFormPage() {
   hiddenForm.classList.remove('hidden');
@@ -61,14 +60,12 @@ function showFormPage() {
   savedView.classList.add('hidden');
 };
 function saveCover() {
-  if (savedCovers.includes(currentCover)) {
-    console.log(false);
-  } else {
-    return savedCovers.push(currentCover)
-  }
+  event.preventDefault();
+  currentCover = new Cover(coverImage.src, title.innerText, tagline1.innerText, tagline2.innerText);
+  savedCovers.push(currentCover);
+  saveCoverButton.disabled = true;
 };
 function showSavedCovers() {
-  // will display the hardcoded example, not pulling in freshly saved array items
   savedView.classList.remove('hidden');
   hiddenForm.classList.add('hidden');
   savedCoversPage.classList.remove('hidden');
@@ -84,34 +81,21 @@ function showSavedCovers() {
         <h2 class="cover-title">${savedCovers[i].title}</h2>
         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline2">${savedCovers[i].tagline2}</span></h3>
         <img class="price-tag" src="./assets/price.png">
-        <img class="overlay" src=".assets/overlay.png">
+        <img class="overlay" src="./assets/overlay.png">
         </section>
         `
     };
 };
-function saveMyBook() {
-  var userCover = userCoverInput.value
-  covers.push(userCover);
-  var userTitle = userTitleInput.value
-  titles.push(userTitle);
-  var userDesc1 = userDescInput1.value
-  descriptors.push(userDesc1);
-  var userDesc2 = userDescInput2.value
-  descriptors.push(userDesc2);
-  currentCover = new Cover(userCover, userTitle, userDesc1, userDesc2);
-  event.preventDefault();
-  createUserCover();
-};
 function createUserCover() {
-  coverImage.src = currentCover.cover;
-  title.innerText = currentCover.title;
-  tagline1.innerText = currentCover.tagline1;
-  tagline2.innerText = currentCover.tagline2;
-  currentCover = new Cover(coverImage.src, title.innerText, tagline1.innerText, tagline2.innerText);
+  coverImage.src = userCoverInput.value;
+  title.innerText = userTitleInput.value;
+  tagline1.innerText = userDescInput1.value;
+  tagline2.innerText = userDescInput2.value;
   hiddenForm.classList.add('hidden');
   coverView.classList.remove('hidden');
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   event.preventDefault();
+  saveCoverButton.disabled = false;
 };

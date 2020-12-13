@@ -1,4 +1,3 @@
-//hello
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
 var body = document.querySelector('body');
@@ -21,7 +20,6 @@ var userCoverInput = document.querySelector('.user-cover');
 var userTitleInput = document.querySelector('.user-title');
 var userDescInput1 = document.querySelector('.user-desc1');
 var userDescInput2 = document.querySelector('.user-desc2');
-
 var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 
@@ -31,9 +29,9 @@ window.addEventListener('load', generateRandomCover);
 randomCoverButton.addEventListener('click', generateRandomCover);
 viewSavedButton.addEventListener('click', showSavedCovers);
 homeButton.addEventListener('click', generateRandomCover);
-
 makeNewButton.addEventListener('click', showFormPage);
 makeMyBookButton.addEventListener('click', saveMyBook);
+saveCoverButton.addEventListener('click', saveCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -60,11 +58,6 @@ function showFormPage() {
   homeButton.classList.remove('hidden');
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
-  //makeNewButton.classList.add('hidden');
-  // coverImage.classList.add('hidden');
-  // title.classList.add('hidden');
-  // tagline1.classList.add('hidden');
-  // tagline2.classList.add('hidden');
 };
 function showSavedCovers() {
   savedCoversPage.classList.remove('hidden');
@@ -92,10 +85,6 @@ function createUserCover() {
   tagline1.innerText = currentCover.tagline1;
   tagline2.innerText = currentCover.tagline2;
   currentCover = new Cover(coverImage.src, title.innerText, tagline1.innerText, tagline2.innerText);
-  // var userCover = userCoverInput.value;
-  // var userTitle = userTitleInput.value;
-  // var userDesc1 = userDescInput1.value;
-  // var userDesc2 = userDescInput2.value;
   hiddenForm.classList.add('hidden');
   coverView.classList.remove('hidden');
   homeButton.classList.add('hidden');
@@ -103,10 +92,10 @@ function createUserCover() {
   saveCoverButton.classList.remove('hidden');
   event.preventDefault();
 };
-
-
-  // new Cover = (userCover, userTitle, userDesc1, userDesc2);
-
-//
-// var hidebutton = document.querySelector(".togglebutton");
-// hidebutton.onclick = toggle
+function saveCover() {
+  if (savedCovers.includes(currentCover)) {
+    console.log(false);
+  } else {
+    return savedCovers.push(currentCover)
+  }
+};

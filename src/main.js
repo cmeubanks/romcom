@@ -60,6 +60,7 @@ function showFormPage() {
   randomCoverButton.classList.add('hidden');
 };
 function showSavedCovers() {
+  hiddenForm.classList.add('hidden');
   savedCoversPage.classList.remove('hidden');
   coverView.classList.add('hidden');
   randomCoverButton.classList.add('hidden');

@@ -21,8 +21,8 @@ var userTitleInput = document.querySelector('.user-title');
 var userDescInput1 = document.querySelector('.user-desc1');
 var userDescInput2 = document.querySelector('.user-desc2');
 var makeMyBookButton = document.querySelector('.create-new-book-button');
-
-
+var savedView = document.querySelector('.saved-view');
+var savedCoversSec = document.querySelector('.saved-covers-section');
 
 // Add your event listeners here 👇
 window.addEventListener('load', generateRandomCover);
@@ -58,13 +58,29 @@ function showFormPage() {
   homeButton.classList.remove('hidden');
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
+  savedView.classList.add('hidden');
 };
 function showSavedCovers() {
+  // will display the hardcoded example, not pulling in freshly saved array items
+  savedView.classList.remove('hidden');
+  hiddenForm.classList.add('hidden');
   savedCoversPage.classList.remove('hidden');
   coverView.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
+  savedCoversSec.innerHTML = "";
+    for (var i = 0; i < savedCovers.length; i++) {
+      savedCoversSec.innerHTML +=
+      `<section class="mini-cover">
+        <img class="cover-image" src=${savedCovers[i].cover}>
+        <h2 class="cover-title">${savedCovers[i].title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline2">${savedCovers[i].tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src=".assets/overlay.png">
+        </section>
+        `
+    };
 };
 function saveMyBook() {
   var userCover = userCoverInput.value

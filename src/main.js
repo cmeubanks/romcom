@@ -74,10 +74,14 @@ function showSavedCovers() {
   homeButton.classList.remove('hidden');
 };
 function saveMyBook() {
-  var userCover = covers.push(userCoverInput.value);
-  var userTitle = titles.push(userTitleInput.value);
-  var userDesc1 = descriptors.push(userDescInput1.value);
-  var userDesc2 = descriptors.push(userDescInput2.value);
+  var userCover = userCoverInput.value
+  covers.push(userCover);
+  var userTitle = userTitleInput.value
+  titles.push(userTitle);
+  var userDesc1 = userDescInput1.value
+  descriptors.push(userDesc1);
+  var userDesc2 = userDescInput2.value
+  descriptors.push(userDesc2);
   currentCover = new Cover(userCover, userTitle, userDesc1, userDesc2);
   event.preventDefault();
   createUserCover();

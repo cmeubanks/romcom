@@ -36,4 +36,4 @@ Want to make your own romance novel cover? You can do that to! Click on `Make yo
 
 
 ###### Wanna see it in action?
-[!https://media.giphy.com/media/E5YQEiFfI0vD7hx2oR/giphy.gif]
+[!(https://media.giphy.com/media/E5YQEiFfI0vD7hx2oR/giphy.gif)]

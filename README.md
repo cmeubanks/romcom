@@ -28,12 +28,12 @@ Want to make your own romance novel cover? You can do that to! Click on `Make yo
 
 
 *******************************************************************************
-[Github Pages]https://cmeubanks.github.io/romcom/
+[Github Pages](https://cmeubanks.github.io/romcom/)
 
 ###### Contributors:
-[Nichele][https://github.com/nichelicorn]
-[Caroline][https://github.com/cmeubanks]
+[Nichele](https://github.com/nichelicorn)
+[Caroline](https://github.com/cmeubanks)
 
 
 ###### Wanna see it in action?
-![](https://giphy.com/gifs/Sfkq8ULNqOoWQclQ82/html5)
+[see the gif on giphy!](https://giphy.com/gifs/Sfkq8ULNqOoWQclQ82/html5)
